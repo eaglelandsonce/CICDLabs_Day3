@@ -31,6 +31,9 @@ jobs:
   reusable-tests:
     name: Reusable Ubuntu Test Suite
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: lab10
     
     outputs:
       results: ${{ steps.test-results.outputs.results }}

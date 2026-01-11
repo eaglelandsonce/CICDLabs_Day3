@@ -10,6 +10,9 @@ jobs:
   comprehensive-ubuntu-ci:
     name: Comprehensive Ubuntu CI Pipeline
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: lab10
     
     steps:
     - name: Checkout code

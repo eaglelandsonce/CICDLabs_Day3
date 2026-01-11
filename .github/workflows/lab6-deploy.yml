@@ -28,6 +28,9 @@ env:
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: lab6/flask-deployment-demo
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -84,7 +87,7 @@ jobs:
         id: build
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: lab6/flask-deployment-demo
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}

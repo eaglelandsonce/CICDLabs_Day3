@@ -34,10 +34,10 @@ jobs:
 
       - name: Render inventory with chosen visibility
         run: |
-          sed -i "s/ghcr_private: .*/ghcr_private: ${{ github.event.inputs.ghcr_private || 'false' }}/" infrastructure/ansible/group_vars/all.yml || true
+          sed -i "s/ghcr_private: .*/ghcr_private: ${{ github.event.inputs.ghcr_private || 'false' }}/" lab11/infrastructure/ansible/group_vars/all.yml || true
 
       - name: Run deployment (local deploy on runner)
-        working-directory: infrastructure/ansible
+        working-directory: lab11/infrastructure/ansible
         run: |
           ansible-playbook -i inventories/development.yml playbooks/deploy-app.yml
 

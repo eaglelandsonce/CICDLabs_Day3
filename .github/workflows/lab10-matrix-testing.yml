@@ -10,6 +10,9 @@ jobs:
   matrix-node-testing:
     name: Node.js Matrix Testing
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: lab10
     
     strategy:
       fail-fast: false
@@ -75,6 +78,9 @@ jobs:
   matrix-python-testing:
     name: Python Matrix Testing
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: lab10
     
     strategy:
       fail-fast: false

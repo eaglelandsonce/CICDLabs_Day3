@@ -34,7 +34,7 @@ jobs:
       - name: Build and push multi-platform image
         uses: docker/build-push-action@v4
         with:
-          context: .
+          context: lab9
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
