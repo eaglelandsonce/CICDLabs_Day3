@@ -12,6 +12,7 @@ on:
     paths:
       - 'lab2/**'
       - '.github/workflows/lab2-simple-ci.yml'
+  workflow_dispatch:  # Allow manual triggering
 
 jobs:
   test:
@@ -30,10 +31,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: 'lab2/simple-cicd-pipeline/package-lock.json'
 
       # Install packages
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
       # Run tests
       - name: Run Tests
@@ -47,4 +50,10 @@ jobs:
       - name: Show Build Results
         run: |
           echo "Build completed!"
-          ls -la dist/
+          if [ -d "dist" ]; then
+            ls -la dist/
+            echo "✓ Build artifacts created successfully"
+          else
+            echo "✗ Warning: dist directory not found"
+            exit 1
+          fi
