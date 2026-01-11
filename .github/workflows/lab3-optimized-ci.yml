@@ -1,7 +1,5 @@
 name: Optimized CI/CD (Small)
 
-
-
 on:
   push:
     branches: [main, develop]
