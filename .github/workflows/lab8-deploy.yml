@@ -4,8 +4,8 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - "ansible/**"
-      - ".github/workflows/deploy.yml"
+      - "lab8/ansible/**"
+      - ".github/workflows/lab8-deploy.yml"
   workflow_dispatch:
 
 permissions:
@@ -40,13 +40,13 @@ jobs:
       # Run ansible-playbook manually
       - name: Build site with Ansible (local)
         env:
-          SITE_DIR: ${{ github.workspace }}/site
+          SITE_DIR: ${{ github.workspace }}/lab8/site
         run: |
-          ansible-playbook -i ansible/inventory.ini ansible/site.yml -vv
+          ansible-playbook -i lab8/ansible/inventory.ini lab8/ansible/site.yml -vv
 
       # Debug check
       - name: "Debug: list ./site"
-        run: ls -la ${{ github.workspace }}/site
+        run: ls -la ${{ github.workspace }}/lab8/site
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -54,7 +54,7 @@ jobs:
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./site
+          path: ./lab8/site
 
   deploy:
     environment:
