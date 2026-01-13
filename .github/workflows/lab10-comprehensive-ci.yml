@@ -11,6 +11,7 @@ on:
     paths:
       - 'lab10/**'
       - '.github/workflows/lab10-comprehensive-ci.yml'
+  workflow_dispatch:
 
 jobs:
   comprehensive-ubuntu-ci:

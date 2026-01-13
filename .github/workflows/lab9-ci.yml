@@ -11,6 +11,7 @@ on:
     paths:
       - 'lab9/**'
       - '.github/workflows/lab9-ci.yml'
+  workflow_dispatch:
 
 jobs:
   security-scan:
