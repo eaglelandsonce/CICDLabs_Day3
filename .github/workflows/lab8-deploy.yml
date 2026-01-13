@@ -1,4 +1,4 @@
-name: Build with Ansible and Deploy to GitHub Pages
+name: Lab8-Build with Ansible and Deploy to GitHub Pages
 
 on:
   push:
