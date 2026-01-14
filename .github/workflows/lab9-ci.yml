@@ -49,8 +49,8 @@ jobs:
         with:
           name: security-reports
           path: |
-            bandit-report.json
-            safety-report.json
+            lab9/bandit-report.json
+            lab9/safety-report.json
 
   test:
     runs-on: ubuntu-latest
