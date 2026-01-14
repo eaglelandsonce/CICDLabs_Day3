@@ -40,8 +40,8 @@ jobs:
 
       - name: Run Safety Check (Dependency Vulnerabilities)
         run: |
-          safety check --json > safety-report.json || true
-          safety check
+          safety scan --json > safety-report.json || true
+          safety scan
 
       - name: Upload Security Reports
         uses: actions/upload-artifact@v4
