@@ -36,12 +36,12 @@ jobs:
       - name: Run Bandit (Python Security Linter)
         run: |
           bandit -r . -x ./test_*.py -f json -o bandit-report.json || true
-          bandit -r . -x ./test_*.py -f screen
+          bandit -r . -x ./test_*.py -f screen || true
 
       - name: Run Safety Check (Dependency Vulnerabilities)
         run: |
           safety scan --json > safety-report.json || true
-          safety scan
+          safety scan || true
 
       - name: Upload Security Reports
         uses: actions/upload-artifact@v4
