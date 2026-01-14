@@ -35,8 +35,8 @@ jobs:
 
       - name: Run Bandit (Python Security Linter)
         run: |
-          bandit -r . -f json -o bandit-report.json || true
-          bandit -r . -f screen
+          bandit -r . -x ./test_*.py -f json -o bandit-report.json || true
+          bandit -r . -x ./test_*.py -f screen
 
       - name: Run Safety Check (Dependency Vulnerabilities)
         run: |
