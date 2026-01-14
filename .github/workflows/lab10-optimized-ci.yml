@@ -34,7 +34,9 @@ jobs:
       id: node-cache
       with:
         path: ~/.npm
-          key: ubuntu-node-${{ env.NODE_VERSION }}-${{ hashFiles('lab10/**/package-lock.json') }}
+        key: ubuntu-node-${{ env.NODE_VERSION }}-${{ hashFiles('lab10/**/package-lock.json') }}
+        
+    - name: Check Node.js cache status
       run: |
         if [ "${{ steps.node-cache.outputs.cache-hit }}" == "true" ]; then
           echo "::notice title=Cache Hit::Node.js dependencies loaded from Ubuntu cache"
@@ -49,7 +51,9 @@ jobs:
       id: python-cache
       with:
         path: ~/.cache/pip
-          key: ubuntu-python-${{ env.PYTHON_VERSION }}-${{ hashFiles('lab10/**/requirements.txt') }}
+        key: ubuntu-python-${{ env.PYTHON_VERSION }}-${{ hashFiles('lab10/**/requirements.txt') }}
+        
+    - name: Check Python cache status
       run: |
         if [ "${{ steps.python-cache.outputs.cache-hit }}" == "true" ]; then
           echo "::notice title=Cache Hit::Python packages loaded from Ubuntu cache"
@@ -110,7 +114,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: cache-performance-ubuntu
-        path: cache-performance.md
+        path: lab10/cache-performance.md
 
   ubuntu-performance-metrics:
     name: Ubuntu Performance Analysis
