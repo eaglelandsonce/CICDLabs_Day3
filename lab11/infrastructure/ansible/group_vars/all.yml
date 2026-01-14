@@ -1,4 +1,4 @@
 ---
 app_port: 5000
-image_ref: "ghcr.io/<YOUR_USER>/capstone-cicd/capstone-flask:latest"
+image_ref: "ghcr.io/eaglelandsonce/cicdlabs_day3/capstone-flask:latest"
 ghcr_private: false
